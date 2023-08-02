@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "jdan734-bot"
-version = "3.1.1.post2"
-description = "Multifunctional Telegram Bot for banning and stuff."
-authors = ["Daniel Zakharov <gzdan734@gmail.com>"]
+name = "seocringe_bot"
+version = "2.2.8.1488"
+description = "GTFU"
+authors = ["seocringe <seocringe@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -33,12 +33,14 @@ tghtml = "^1.1.0"
 wikipya = "^4.0.3"
 cached-property = "^1.5.2"
 toml = "^0.10.2"
+openai = "^0.27.8"
+nltk = "^3.8.1"
+whois = "^0.9.27"
+python-whois = "^0.8.0"
 
 [tool.poetry.dev-dependencies]
 pytest-asyncio = "^0.16.0"
 bandit = "^1.7.4"
-
-[tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
 
 [build-system]

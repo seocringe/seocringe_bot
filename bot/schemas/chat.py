@@ -39,7 +39,7 @@ class Chat(Model):
         else:
             when_pidor_of_day = self.pidor.when_pidor_of_day
 
-        timezone = pdl.timezone("Europe/Moscow")
+        timezone = pdl.timezone("Europe/Kyiv")
 
         next_pidor_day = when_pidor_of_day.replace(tzinfo=timezone).replace(
             hour=0, minute=0, second=0, microsecond=0

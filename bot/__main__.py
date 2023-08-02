@@ -2,7 +2,7 @@ import asyncio
 
 from aiogram import executor
 
-from . import *  # noqa
+from . import *
 from .config import dp
 from .schemas import db_setup
 from .lib.schedule import schedule_setup

@@ -5,7 +5,7 @@ from os import listdir, walk
 from pathlib import Path
 
 
-__version__ = "test"
+__version__ = "develop"
 
 
 __import__("bot.config.logger")

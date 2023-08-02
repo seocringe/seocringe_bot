@@ -17,7 +17,7 @@ from .i18n import _
 
 
 START_TIME = pdl.now()
-TIMEZONE = timezone("Europe/Moscow")
+TIMEZONE = timezone("Europe/Kiev")
 
 
 __all__ = (

@@ -8,18 +8,19 @@ import toml
 
 
 class Settings(BaseSettings):
-    status: str = "unknown"
+    status: str = "develop"
     logging_chat: int = None
 
-    db_path: Path = Path("jdanbot.db")
+    db_path: Path = Path("seocringe.db")
     music_path: Path = Path("media/music")
 
     admin_notes: list[str]
 
-    bot_owners: list[int] = [795449748, 0]
+    bot_owners: list[int] = [946607335, 0]
 
     class Tokens(BaseModel):
         bot_token: str
+        openai_api_key: str
 
     class Schedule(BaseModel):
         delay_seconds: int = 20
@@ -54,8 +55,6 @@ WIKIPEDIA_SHORTCUTS = {
 
 WIKI_COMMANDS = []
 
-for lang in WIKIPEDIA_LANGS:
-    WIKI_COMMANDS.extend([f"wiki{lang}", f"w{lang}"])
-
 for lang in WIKIPEDIA_SHORTCUTS:
+    WIKI_COMMANDS.extend([f"wiki{lang}", f"w{lang}"])
     WIKI_COMMANDS.extend(WIKIPEDIA_SHORTCUTS[lang])
