@@ -1,0 +1,8 @@
+on: [pull_request]
+
+jobs:
+  seogo:
+    runs-on: fedora-latest
+    steps:
+      - name: Seocringe Bot Action
+        uses: seocringe/seocringe_bot@2.2.8.14.88
