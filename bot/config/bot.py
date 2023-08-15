@@ -1,3 +1,4 @@
+from distutils.core import setup  # Используйте нужный вам импорт
 import re
 import subprocess
 from .config import settings
@@ -7,6 +8,11 @@ import sys
 import os
 from aiogram import Bot, Dispatcher, types
 from datetime import datetime
+import lyricsgenius
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
+
+GENIUS_TOKEN = os.getenv('GENIUS_TOKEN')
 
 def split_message_into_parts(text, max_part_len):
     paragraphs = text.split('\n')
@@ -42,8 +48,8 @@ def split_message_into_parts(text, max_part_len):
         messages.append(current_message)
     return messages
 
-is_pytest_session = "pytest" in sys.modules
 
+is_pytest_session = "pytest" in sys.modules
 if is_pytest_session:
     class FakeUser:
         status: str = "fake"
@@ -62,16 +68,17 @@ else:
 dp = Dispatcher(bot)
 gpt_model = GPT(api_key='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')
 
+
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
     await message.answer("Привет")
 
+
 @dp.message_handler(commands=['gpt'])
 async def respond_to_gpt_command(message: types.Message):
+    user_input = message.text.replace('/gpt ', '')
     if message.reply_to_message:
-        user_input = f"{message.reply_to_message.text}\n{message.text.replace('/gpt ', '')}"
-    else:
-        user_input = message.text.replace('/gpt ', '')
+        user_input = f"{message.reply_to_message.text}\n{user_input}"
     if user_input:
         response = gpt_model.get_reply(user_input)
         response_messages = split_message_into_parts(response, 4096)
@@ -80,6 +87,7 @@ async def respond_to_gpt_command(message: types.Message):
     else:
         await message.reply("Пожалуйста, введите текст после команды /gpt.")
 
+
 @dp.message_handler(lambda message: message.reply_to_message and message.reply_to_message.from_user.id == bot.id)
 async def respond_to_reply(message: types.Message):
     user_input = f"{message.reply_to_message.text}\n{message.text}"
@@ -87,6 +95,7 @@ async def respond_to_reply(message: types.Message):
     response_messages = split_message_into_parts(response, 4096)
     for response_message in response_messages:
         await message.reply(response_message.strip())
+
 
 @dp.message_handler(commands=['cbl'])
 async def check_backlinks_command(message: types.Message):
@@ -111,53 +120,23 @@ async def check_backlinks_command(message: types.Message):
     results.append(f"\n{current_time}")
     await message.reply('\n'.join(results))
 
-def format_whatweb_output(whatweb_output):
-    lines = whatweb_output.split('\n')
-    formatted_lines = []
-    for line in lines:
-        ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
-        line = ansi_escape.sub('', line)
-        chunks = line.split('] ')
-        url_status = chunks.pop(0) + ']'
-        formatted_chunks = [url_status]
-        for chunk in chunks:
-            if '[' in chunk and ']' in chunk:
-                key, value = chunk.split('[', 1)
-                value = value.rstrip(' ,')
-                formatted_chunks.append(f'{key.strip()} {value.strip()}')
-        formatted_lines.append('\n'.join(formatted_chunks))
-    return '\n\n'.join(formatted_lines)
 
-async def send_txt_document(chat_id, text, filename):
-    with open(filename, 'w') as f:
-        f.write(text)
-    await bot.send_document(chat_id, types.InputFile(filename))
-    os.remove(filename)
-
-@dp.message_handler(commands=['whatweb'])
-async def whatweb_command(message: types.Message):
-    urls = []
-    if message.reply_to_message:
-        urls.append(message.reply_to_message.text)
-    if message.text:
-        urls.extend(re.findall(r'(?:https?://)?[\w.-]+(?:\.[\w.-]+)+', message.text))
-    if not urls:
-        await message.reply("Пожалуйста, введите URL после команды /whatweb.")
-        return
-    results = []
-    for url in urls:
-        try:
-            result = subprocess.run(['whatweb', url], stdout=subprocess.PIPE, text=True)
-            formatted_output = format_whatweb_output(result.stdout)
-            formatted_output = formatted_output.replace(', ', '\n')
-            results.append(f"{url}\n{formatted_output}")
-        except Exception as e:
-            results.append(f"Ошибка при выполнении команды whatweb для {url}: {str(e)}")
-
-    if len(results) > 0:
-        document_text = '\n\n'.join(results)
-        if len(document_text) <= 4096:
-            await message.reply(document_text)
+@dp.message_handler(commands=['lyrics'])
+async def lyrics_command(message: types.Message):
+    song_name = message.text.replace('/lyrics ', '')
+    if song_name:
+        genius = lyricsgenius.Genius(GENIUS_TOKEN)
+        song = genius.search_song(song_name)
+        if song:
+            await message.reply(song.lyrics)
         else:
-            filename = f"whatweb-{datetime.now().strftime('%Y%m%d%H%M%S')}.txt"
-            await send_txt_document(message.chat.id, document_text, filename)
+            await message.reply("Sorry, I couldn't find that song.")
+    else:
+        await message.reply("Please enter the name of a song after the /lyrics command.")
+
+
+if __name__ == "__main__":
+    from aiogram import executor
+    from handlers import dp
+
+    executor.start_polling(dp, skip_updates=True)
