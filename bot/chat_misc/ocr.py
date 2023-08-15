@@ -2,7 +2,7 @@ import io
 import cv2
 import numpy as np
 import pytesseract
-from aiogram import types
+from aiogram import types 
 from aiogram.dispatcher import filters
 from deep_translator import GoogleTranslator as DeepGoogleTranslator
 from PIL import Image
