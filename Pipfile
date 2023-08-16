@@ -11,6 +11,10 @@ requests = "*"
 cachetools = "*"
 pip = "*"
 pipenv = "*"
+readability-lxml = "*"
+tghtml = "*"
+beautifulsoup4 = "*"
+newspaper3k = "*"
 
 [dev-packages]
 

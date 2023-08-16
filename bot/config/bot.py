@@ -9,6 +9,8 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 is_pytest_session = "pytest" in sys.modules
+from readability import Document
+from tghtml import TgHTML
 
 if is_pytest_session:
     class FakeUser:
@@ -197,7 +199,8 @@ async def photo_handler(message):
 @dp.message_handler(commands=['start'], state='*')
 async def start_command(message):
     await send_menu(message, dp)
-
+content = Document(html_content).summary()
+content = TgHTML(content)
 @dp.message_handler(commands=['netscape'])
 async def netscape_command(message: types.Message):
     url = message.get_args()
