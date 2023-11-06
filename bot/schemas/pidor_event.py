@@ -6,7 +6,7 @@ from pytz import timezone
 from peewee import IntegerField, DateTimeField, Model
 
 
-TIMEZONE = timezone("Europe/Moscow")
+TIMEZONE = timezone("Europe/Kiev")
 
 
 class PidorEvent(Model):

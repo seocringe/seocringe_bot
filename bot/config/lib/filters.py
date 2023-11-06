@@ -3,7 +3,6 @@ import logging
 
 from ..bot import bot
 
-
 class ResendLogs(logging.Filter):
     def filter(self, record) -> bool:
         loop = asyncio.get_event_loop()
@@ -11,9 +10,5 @@ class ResendLogs(logging.Filter):
         return True
 
     async def send_to_tg(self, record):
+        from ..bot import bot  # Move import here
         await bot.send_message(-1001435542296, record.msg, parse_mode="HTML")
-
-
-class NoRunningJobFilter(logging.Filter):
-    def filter(self, record):
-        return not record.getMessage().startswith("Running job Every")

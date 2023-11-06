@@ -53,7 +53,7 @@ if is_pytest_session:
 else:
     bot = Bot(token=settings.tokens.bot_token)
 dp = Dispatcher(bot)
-gpt_model = GPT(api_key='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')
+gpt_model = GPT(api_key='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')
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
     await message.answer("Привет")
