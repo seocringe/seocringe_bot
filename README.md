@@ -22,3 +22,4 @@ logging_chat = -10012345678
 [tokens]
 bot_token = "12345678909:AVEFWGRGHTHHRGGERGEG"
 ```
+# fnxseobot
