@@ -1,0 +1,4 @@
+IP address for kalyan.net.ua: 185.68.16.210
+Geo IP Data: {'ip': '185.68.16.210', 'country_code': 'UA', 'country': 'Ukraine', 'country_rus': 'Украина', 'country_ua': 'Україна', 'region': 'Kyiv', 'region_rus': 'Киев', 'region_ua': 'Київ', 'city': 'Kiev', 'city_rus': 'Киев', 'city_ua': 'Київ', 'latitude': '50.45466', 'longitude': '30.5238', 'zip_code': '03065', 'time_zone': '+03:00'}
+Provider IP Data: {'ip': '185.68.16.210', 'name_ripe': 'Hosting Ukraine LTD', 'name_ua': 'ТОВ "Хостинг Україна"', 'name_rus': 'ООО "Хостинг Украина"', 'site': 'https://www.ukraine.com.ua/', 'as': '200000', 'ip_range_start': '3108245504', 'ip_range_end': '3108246527', 'route': '185.68.16.0', 'mask': '22'}
+Hosting Data: {'name_ripe': 'Microsoft Corporation', 'name_rus': None, 'site': 'https://www.microsoft.com/'}

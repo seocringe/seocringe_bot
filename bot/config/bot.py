@@ -5,6 +5,7 @@ from .config import settings
 from ..agpt.agpt import GPT
 from ..checkbacklinks.cbl import checkindex
 import sys
+sys.path.insert(0, '/workspaces/seocringe_bot')
 import os
 from aiogram import Bot, Dispatcher, types
 from datetime import datetime

@@ -1,6 +1,6 @@
 import re
 import subprocess
-from .config import settings
+from bot.config.config import settings
 from ..agpt.agpt import GPT
 from ..checkbacklinks.cbl import checkindex
 import sys
