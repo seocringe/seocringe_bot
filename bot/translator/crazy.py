@@ -13,7 +13,7 @@ from ..config.i18n import i18n
 nltk.download('punkt')  # Download the punkt tokenizer
 
 # Ensure you've set the OPENAI_API_KEY as an environment variable
-gpt_model = api_key="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"
+gpt_model = api_key="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"
 
 async def cleared_translate(text: str, tgt_lang: str) -> str:
     text_parts = nltk.sent_tokenize(text)  # Split the text into sentences

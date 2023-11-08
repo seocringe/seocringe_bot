@@ -2,7 +2,7 @@
 name = "seocringe_bot"
 version = "2.2.8.1488"
 description = "GTFU"
-authors = ["seocringe <privetnambogolet@gmail.com>"]
+authors = ["seocringe <seocringe@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]

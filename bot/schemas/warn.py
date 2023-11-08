@@ -31,7 +31,7 @@ class Warn(Model):
         warned_id: int,
         period: timedelta = timedelta(hours=24)
     ) -> list["Warn"]:
-        _timezone = timezone("Europe/Kiev")
+        _timezone = timezone("Europe/Moscow")
         period_bound = datetime.now(_timezone) - period
 
         return (Warn.select()
