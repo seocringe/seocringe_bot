@@ -1,0 +1,140 @@
+% Request from 52.166.67.96
+% This is the Ukrainian Whois query server #P.
+% The Whois is subject to Terms of use
+% See https://hostmaster.ua/services/
+%
+% IN THE PROCESS OF DELEGATION OF A DOMAIN NAME,
+% THE REGISTRANT IS AN ENTITY WHO USES AND MANAGES A CERTAIN DOMAIN NAME,
+% AND THE REGISTRAR IS A BUSINESS ENTITY THAT PROVIDES THE REGISTRANT
+% WITH THE SERVICES NECESSARY FOR THE TECHNICAL MAINTENANCE OF THE REGISTRATION AND OPERATION OF THE DOMAIN NAME.
+% FOR INFORMATION ABOUT THE REGISTRANT OF THE DOMAIN NAME, YOU SHOULD CONTACT THE REGISTRAR.
+
+domain:           moresex.com.ua
+dom-public:       NO
+mnt-by:           ua.imena
+nserver:          nsa1.srv53.net
+nserver:          nsa3.srv53.com
+nserver:          nsa4.srv53.org
+nserver:          nsb1.srv53.com
+nserver:          nsb1.srv53.net
+nserver:          nsb3.srv53.org
+nserver:          nsc1.srv53.org
+nserver:          nsc2.srv53.net
+nserver:          nsc3.srv53.com
+nserver:          nsd1.srv53.org
+nserver:          nsd2.srv53.net
+nserver:          nsd3.srv53.com
+status:           clientTransferProhibited
+created:          2023-02-09 18:16:06+02
+modified:         2023-02-09 18:16:07+02
+expires:          2024-02-09 18:16:06+02
+source:           UAEPP
+
+% Registrar:
+%
+% The following disclaimer was provided by the domain name registrar
+% ==========
+% Надана інформація є неповною і може містити помилки, пов'язані з особливостями механізмів кешування інформації, несинхронного оновлення реєстрів тощо, тому не є достовірною та надається виключно для ознайомлення.
+% У зв'язку із зазначеним вище, дана інформація не може бути використана з метою вирішення спорів, конфліктів, визначення майнових та немайнових прав тощо.
+% Єдиним джерелом первинних даних про доменне ім'я є реєстратор (registrar) доменного імені, який може надати необхідну інформацію на запит у встановленому законом порядку.
+% 
+% The provided information is incomplete and may contain errors related to the specificity 
+% of information caching mechanisms, asynchronous updating of registries, etc., 
+% therefore it is not reliable and is provided for informational purposes only. 
+% In connection with the above, this information can not be used to resolve disputes, 
+% conflicts, determine property and non-property rights, etc.
+% The only source of primary data about the domain name is the registrar of the domain name, 
+% which can provide the required information upon request, in accordance with the procedure established by law.
+% ==========
+registrar:        ua.imena
+organization:     Internet Invest Ltd
+organization-loc: ТОВ "Інтернет Інвест"
+url:              http://www.imena.ua
+city:             Kyiv
+country:          UA
+abuse-email:      abuse@imena.ua
+abuse-phone:      +380442010102
+abuse-postal:     50-B Simi Prakhovykh St., Kyiv, 01033, Ukraine
+abuse-postal-loc: вул. Сім'ї Прахових 50-Б, Київ, 01033, Україна
+source:           UAEPP
+
+% Registrant:
+% ===========
+person:           Registrant information is not published
+person-loc:       Інформація про реєстранта не публікується
+organization:     Whois privacy protection service
+organization-loc: Захист персональних даних
+e-mail:           not published
+address:          not published
+address-loc:      not published
+phone:            not published
+fax:              not published
+mnt-by:           ua.imena
+status:           ok
+status:           linked
+created:          2013-04-08 22:19:45+03
+modified:         2015-11-18 10:57:28+02
+source:           UAEPP
+
+
+% Administrative Contacts:
+% =======================
+person:           Registrant information is not published
+person-loc:       Інформація про реєстранта не публікується
+organization:     Whois privacy protection service
+organization-loc: Захист персональних даних
+e-mail:           not published
+address:          not published
+address-loc:      not published
+phone:            not published
+fax:              not published
+mnt-by:           ua.imena
+status:           ok
+status:           linked
+created:          2013-04-08 22:19:45+03
+modified:         2015-11-18 10:57:28+02
+source:           UAEPP
+
+
+% Technical Contacts:
+% ===================
+person:           Registrant information is not published
+person-loc:       Інформація про реєстранта не публікується
+organization:     Whois privacy protection service
+organization-loc: Захист персональних даних
+e-mail:           not published
+address:          not published
+address-loc:      not published
+phone:            not published
+fax:              not published
+mnt-by:           ua.imena
+status:           ok
+status:           linked
+created:          2013-04-08 22:19:45+03
+modified:         2015-11-18 10:57:28+02
+source:           UAEPP
+
+
+
+% Query time:     3 msec
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-11-18 13:22 UTC
+NSE: Loaded 149 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 13:22
+Completed NSE at 13:22, 10.01s elapsed
+Initiating NSE at 13:22
+Completed NSE at 13:22, 0.00s elapsed
+Initiating Ping Scan at 13:22
+Scanning moresex.com.ua (51.68.97.214) [4 ports]
+Completed Ping Scan at 13:22, 0.07s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 13:22
+Completed Parallel DNS resolution of 1 host. at 13:22, 0.04s elapsed
+Initiating SYN Stealth Scan at 13:22
+Scanning moresex.com.ua (51.68.97.214) [65535 ports]
+Discovered open port 443/tcp on 51.68.97.214
+Discovered open port 80/tcp on 51.68.97.214
+Discovered open port 22114/tcp on 51.68.97.214
+SYN Stealth Scan Timing: About 20.65% done; ETC: 13:24 (0:01:59 remaining)
+Discovered open port 22117/tcp on 51.68.97.214
+SYN Stealth Scan Timing: About 49.22% done; ETC: 13:24 (0:01:03 remaining)
