@@ -29,4 +29,4 @@ class GPT:
         except Exception as e:
             return f"Общая ошибка: {str(e)}"
 
-gpt_model = GPT(api_key='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')
+gpt_model = GPT(api_key='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')
