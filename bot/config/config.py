@@ -1,11 +1,8 @@
-from pydantic import BaseSettings, BaseModel
+from pydantic_settings import BaseSettings, BaseModel
 
 from pathlib import Path
-
-from .languages import WIKIPEDIA_LANGS
-
+from languages import WIKIPEDIA_LANGS
 import toml
-
 
 class Settings(BaseSettings):
     status: str = "develop"
@@ -42,8 +39,7 @@ with open("settings.toml") as file:
 with open(".secrets.toml") as file:
     secrets_file = toml.loads(file.read())
 
-settings = Settings.parse_obj(settings_file | secrets_file)
-
+settings = Settings.model_validate(settings_file | secrets_file)
 BASE_DIR = Path(__file__).parent.parent.parent
 LOCALES_DIR = BASE_DIR / "locales"
 

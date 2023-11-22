@@ -1,9 +1,12 @@
-from distutils.core import setup
-import re, subprocess, sys, os, datetime as dt, lyricsgenius
-from .config import settings
+import os
+import datetime as dt
+from config import settings;
+from aiogram import Bot, Dispatcher, types, executor
+from .atc_scraper import scrape_and_save_atc_data
+import lyricsgenius
+
 from ..agpt.agpt import GPT
 from ..checkbacklinks.cbl import checkindex
-from aiogram import Bot, Dispatcher, types, executor
 
 sys.path.insert(0, "/workspaces/seocringe_bot")
 GENIUS_TOKEN = os.getenv("GENIUS_TOKEN")
@@ -118,9 +121,16 @@ async def lyrics_command(message: types.Message):
         else:
             await message.reply("Sorry, I couldn't find that song.")
     else:
-        await message.reply(
-            "Please enter the name of a song after the /lyrics command."
-        )
+        await message.reply("Please enter the name of a song after the /lyrics command.")
+
+@dp.message_handler(commands=["atc"])
+async def handle_atc_command(message: types.Message):
+    try:
+        file_path = await scrape_and_save_atc_data()
+        with open(file_path, "rb") as file:
+            await message.reply_document(file)
+    except Exception as e:
+        await message.reply("Произошла ошибка: " + str(e))
 
 
 if __name__ == "__main__":
