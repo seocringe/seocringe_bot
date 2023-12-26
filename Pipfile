@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-poetry = "*"
+poetry = "==1.1.12"
 pyrogram = "==2.0.106"
 aiogram = "==3.0.0rc2"
 update = "==0.0.1"
@@ -76,7 +76,7 @@ yarl = "==1.9.2"
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.11.6"
 
 [pipenv]
 allow_prereleases = true
